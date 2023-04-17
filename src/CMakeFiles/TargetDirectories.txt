@@ -1,4 +1,0 @@
-/home/krizhik/Downloads/Sniffer/src/CMakeFiles/app.dir
-/home/krizhik/Downloads/Sniffer/src/CMakeFiles/app_lib.dir
-/home/krizhik/Downloads/Sniffer/src/CMakeFiles/edit_cache.dir
-/home/krizhik/Downloads/Sniffer/src/CMakeFiles/rebuild_cache.dir

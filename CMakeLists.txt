@@ -9,35 +9,42 @@ set (${PROJECT_NAME}_VERSION "${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}
 
 file(GLOB CPP_SOURCES ${CMAKE_SOURCE_DIR}/myLib/src/*.cpp)
 
-
-include_directories("${PROJECT_SOURCE_DIR}/myLib/include")
-include_directories("${PROJECT_BINARY_DIR}/../myLib/include")
-
 add_executable(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/src/main.cpp ${CPP_SOURCES})
-
-target_include_directories(${PROJECT_NAME} PRIVATE myLib/include)
-
 add_library(${PROJECT_NAME}_lib 
-	STATIC ${CMAKE_SOURCE_DIR}/myLib/src/App.cpp ${CMAKE_SOURCE_DIR}/myLib/src/PacketStats.cpp) 
+STATIC ${CMAKE_SOURCE_DIR}/myLib/src/App.cpp ${CMAKE_SOURCE_DIR}/myLib/src/PacketStats.cpp) 
+
+
+target_include_directories(${PROJECT_NAME} PUBLIC myLib/include)
+
+target_include_directories(${PROJECT_NAME}_lib PRIVATE 
+${CMAKE_SOURCE_DIR}/myLib/Logger/ 
+)
 
 target_include_directories(${PROJECT_NAME}_lib PUBLIC
 ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Packet++/header
 ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Pcap++/header
 ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Common++/header
 ${CMAKE_SOURCE_DIR}/myLib/include
-${CMAKE_SOURCE_DIR}/Logger
+${CMAKE_SOURCE_DIR}/myLib/Logger
 )
-
-target_link_libraries(${PROJECT_NAME}_lib PUBLIC
-${CMAKE_SOURCE_DIR}/../../../../../usr/local/lib/libPacket++.a 
-${CMAKE_SOURCE_DIR}/../../../../../usr/local/lib/libPcap++.a
-${CMAKE_SOURCE_DIR}/../../../../../usr/local/lib/libCommon++.a
-
--lpcap)
 
 target_include_directories(${PROJECT_NAME}_lib 
 	PUBLIC ${PROJECT_SOURCE_DIR}/src)
 
 target_link_libraries(${PROJECT_NAME} 
 	PUBLIC ${PROJECT_NAME}_lib)
+include(FetchContent)
+FetchContent_Declare(PcapPlusPlus
+	GIT_REPOSITORY https://github.com/seladb/PcapPlusPlus.git
+	SOURCE_DIR ${CMAKE_SOURCE_DIR}/external/PcapPlusPlus
+	GIT_TAG master)
+FetchContent_MakeAvailable(PcapPlusPlus)
+
+target_link_libraries(${PROJECT_NAME}_lib
+Pcap++
+Packet++
+Common++
+)
+
+
 

@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef _APP_
 #define _APP_
 #include <iostream>
@@ -15,18 +15,15 @@
 #include "PacketStats.h"
 #include <map>
 #include <algorithm>
-
-//#include "spdlog/spdlog.h"
-
-
-
-//#include "Logger/spdlog"
+#include "Log.h"
 
 
 class PacketStats;
 class App
 {
-	public:
+	public:	
+	static std::string interfaceIPAddr;
+	// std::shared_ptr<spdlog::logger> logger;
 	bool IPv4Check(std::string interfaceIPAddr, pcpp::PcapLiveDevice* dev);
 	void PrintAboutInterface(pcpp::PcapLiveDevice* dev);
 	bool DevOpeningCheck(pcpp::PcapLiveDevice* dev);

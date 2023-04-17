@@ -4,17 +4,19 @@
 
 void PacketStats::clear() 
 	{ 
+	LOG_INFO("clear<Method started>");
 	ethPacketCount = 0; ipv4PacketCount = 0; ipv6PacketCount = 0; 
 	tcpPacketCount = 0; udpPacketCount = 0;  tcpPacketCount = 0; 
 	dnsPacketCount = 0; httpPacketCount = 0; sslPacketCount = 0; 
 	}
 
-//Constructor
-PacketStats::PacketStats() { clear(); }
 
-//Collect stats from a packet
-void PacketStats::consumePacket(pcpp::Packet& packet)
+PacketStats::PacketStats() { clear(); } //Constructor PacketStats
+
+
+void PacketStats::consumePacket(pcpp::Packet& packet) //Collect stats from a packet
 	{
+		//LOG_INFO("consumePacket<Method started>");
 		if (packet.isPacketOfType(pcpp::Ethernet)) {
 			ethPacketCount++;}
 		if (packet.isPacketOfType(pcpp::IPv4)) {ipv4PacketCount++;}
@@ -26,11 +28,11 @@ void PacketStats::consumePacket(pcpp::Packet& packet)
 		if (packet.isPacketOfType(pcpp::SSL)) {sslPacketCount++;}
 	}
 
-//Print stats to console
-void PacketStats::printToConsole()
+
+void PacketStats::printToConsole() //Print stats to console
 	{
-		
-		std::cout << std::endl << "Results:" << std::endl
+		LOG_INFO("printToConsole<Method started>");
+		std::cout << "Results:" << std::endl
 			<< "Ethernet packet count: " << ethPacketCount << std::endl
 			<< "IPv4 packet count:     " << ipv4PacketCount << std::endl
 			<< "IPv6 packet count:     " << ipv6PacketCount << std::endl

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _PACKET_
 #define _PACKET_
 #include "App.h"

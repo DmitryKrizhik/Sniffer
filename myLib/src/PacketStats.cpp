@@ -29,6 +29,7 @@ void PacketStats::consumePacket(pcpp::Packet& packet)
 //Print stats to console
 void PacketStats::printToConsole()
 	{
+		
 		std::cout << std::endl << "Results:" << std::endl
 			<< "Ethernet packet count: " << ethPacketCount << std::endl
 			<< "IPv4 packet count:     " << ipv4PacketCount << std::endl

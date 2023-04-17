@@ -25,6 +25,8 @@ ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Packet++/header
 ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Pcap++/header
 ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Common++/header
 ${CMAKE_SOURCE_DIR}/myLib/include
+${CMAKE_SOURCE_DIR}/spdlog/spdlog/include
+
 )
 
 target_link_libraries(${PROJECT_NAME}_lib PUBLIC

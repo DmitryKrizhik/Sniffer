@@ -1,5 +1,6 @@
 #pragma once
 #include "App.h"
+#include "spdlog/spdlog.h"
 
 
 int main(int argc, char* argv[])
@@ -28,6 +29,8 @@ int main(int argc, char* argv[])
 	App.PrintURLcount(App::countURL, App::InOut);
 	stats.printToConsole();
 	dev->close();
+	//auto Logger = spdlog::basic_logger_mt("Logger", "../../Logs.txt");
+
 }
 	
 

@@ -2,8 +2,10 @@
 #ifndef _APP_1
 #define _APP_1
 #include <iostream>
+#include "spdlog/spdlog.h"
 #include "App.h"
 	
+	// auto Logger = spdlog::basic_logger_mt("Logger", "../../Logs.txt");
 	bool App::IPv4Check(std::string interfaceIPAddr, pcpp::PcapLiveDevice* dev)
 	{
 	if (dev == NULL)

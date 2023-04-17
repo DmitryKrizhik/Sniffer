@@ -97,35 +97,19 @@ CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krizhik/Downloads/Sniffer/myLib/src/PacketStats.cpp -o CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.s
 
-CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o: CMakeFiles/app_lib.dir/flags.make
-CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o: ../myLib/src/CollectionStatistics.cpp
-CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o: CMakeFiles/app_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/krizhik/Downloads/Sniffer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o -MF CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o.d -o CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o -c /home/krizhik/Downloads/Sniffer/myLib/src/CollectionStatistics.cpp
-
-CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krizhik/Downloads/Sniffer/myLib/src/CollectionStatistics.cpp > CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.i
-
-CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krizhik/Downloads/Sniffer/myLib/src/CollectionStatistics.cpp -o CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.s
-
 # Object files for target app_lib
 app_lib_OBJECTS = \
 "CMakeFiles/app_lib.dir/myLib/src/App.cpp.o" \
-"CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.o" \
-"CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o"
+"CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.o"
 
 # External object files for target app_lib
 app_lib_EXTERNAL_OBJECTS =
 
 libapp_lib.a: CMakeFiles/app_lib.dir/myLib/src/App.cpp.o
 libapp_lib.a: CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.o
-libapp_lib.a: CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o
 libapp_lib.a: CMakeFiles/app_lib.dir/build.make
 libapp_lib.a: CMakeFiles/app_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/krizhik/Downloads/Sniffer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libapp_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/krizhik/Downloads/Sniffer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libapp_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/app_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app_lib.dir/link.txt --verbose=$(VERBOSE)
 

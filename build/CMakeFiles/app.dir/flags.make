@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/krizhik/Downloads/Sniffer/myLib/include -I/home/krizhik/Downloads/Sniffer/build/../myLib/include -I/home/krizhik/Downloads/Sniffer/../PcapPlusPlus/Packet++/header -I/home/krizhik/Downloads/Sniffer/../PcapPlusPlus/Pcap++/header -I/home/krizhik/Downloads/Sniffer/../PcapPlusPlus/Common++/header -I/home/krizhik/Downloads/Sniffer/src
+CXX_INCLUDES = -I/home/krizhik/Downloads/Sniffer/myLib/include -I/home/krizhik/Downloads/Sniffer/build/../myLib/include -I/home/krizhik/Downloads/Sniffer/../PcapPlusPlus/Packet++/header -I/home/krizhik/Downloads/Sniffer/../PcapPlusPlus/Pcap++/header -I/home/krizhik/Downloads/Sniffer/../PcapPlusPlus/Common++/header -I/home/krizhik/Downloads/Sniffer/Logger -I/home/krizhik/Downloads/Sniffer/src
 
 CXX_FLAGS = 
 

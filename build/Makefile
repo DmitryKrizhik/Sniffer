@@ -169,57 +169,6 @@ myLib/src/App.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_lib.dir/build.make CMakeFiles/app_lib.dir/myLib/src/App.cpp.s
 .PHONY : myLib/src/App.cpp.s
 
-myLib/src/CollectionStatistics.o: myLib/src/CollectionStatistics.cpp.o
-.PHONY : myLib/src/CollectionStatistics.o
-
-# target to build an object file
-myLib/src/CollectionStatistics.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/myLib/src/CollectionStatistics.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_lib.dir/build.make CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o
-.PHONY : myLib/src/CollectionStatistics.cpp.o
-
-myLib/src/CollectionStatistics.i: myLib/src/CollectionStatistics.cpp.i
-.PHONY : myLib/src/CollectionStatistics.i
-
-# target to preprocess a source file
-myLib/src/CollectionStatistics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/myLib/src/CollectionStatistics.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_lib.dir/build.make CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.i
-.PHONY : myLib/src/CollectionStatistics.cpp.i
-
-myLib/src/CollectionStatistics.s: myLib/src/CollectionStatistics.cpp.s
-.PHONY : myLib/src/CollectionStatistics.s
-
-# target to generate assembly for a file
-myLib/src/CollectionStatistics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/myLib/src/CollectionStatistics.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_lib.dir/build.make CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.s
-.PHONY : myLib/src/CollectionStatistics.cpp.s
-
-myLib/src/Func.o: myLib/src/Func.cpp.o
-.PHONY : myLib/src/Func.o
-
-# target to build an object file
-myLib/src/Func.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/myLib/src/Func.cpp.o
-.PHONY : myLib/src/Func.cpp.o
-
-myLib/src/Func.i: myLib/src/Func.cpp.i
-.PHONY : myLib/src/Func.i
-
-# target to preprocess a source file
-myLib/src/Func.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/myLib/src/Func.cpp.i
-.PHONY : myLib/src/Func.cpp.i
-
-myLib/src/Func.s: myLib/src/Func.cpp.s
-.PHONY : myLib/src/Func.s
-
-# target to generate assembly for a file
-myLib/src/Func.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/myLib/src/Func.cpp.s
-.PHONY : myLib/src/Func.cpp.s
-
 myLib/src/PacketStats.o: myLib/src/PacketStats.cpp.o
 .PHONY : myLib/src/PacketStats.o
 
@@ -284,12 +233,6 @@ help:
 	@echo "... myLib/src/App.o"
 	@echo "... myLib/src/App.i"
 	@echo "... myLib/src/App.s"
-	@echo "... myLib/src/CollectionStatistics.o"
-	@echo "... myLib/src/CollectionStatistics.i"
-	@echo "... myLib/src/CollectionStatistics.s"
-	@echo "... myLib/src/Func.o"
-	@echo "... myLib/src/Func.i"
-	@echo "... myLib/src/Func.s"
 	@echo "... myLib/src/PacketStats.o"
 	@echo "... myLib/src/PacketStats.i"
 	@echo "... myLib/src/PacketStats.s"

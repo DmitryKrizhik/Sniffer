@@ -827,7 +827,8 @@ CMakeFiles/app.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
-  ../myLib/include/PacketStats.h
+  ../myLib/include/PacketStats.h \
+  ../myLib/include/CollectionStatistics.h
 
 
 ../src/main.cpp:
@@ -965,6 +966,8 @@ CMakeFiles/app.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/c++/11/tuple:
+
+../myLib/include/CollectionStatistics.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 

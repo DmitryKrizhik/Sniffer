@@ -1,9 +1,11 @@
 #include "PacketStats.h"
 
+	 
+
 void PacketStats::clear() 
 	{ 
 	ethPacketCount = 0; ipv4PacketCount = 0; ipv6PacketCount = 0; 
-	tcpPacketCount = 0; udpPacketCount = 0; tcpPacketCount = 0; 
+	tcpPacketCount = 0; udpPacketCount = 0;  tcpPacketCount = 0; 
 	dnsPacketCount = 0; httpPacketCount = 0; sslPacketCount = 0; 
 	}
 
@@ -27,7 +29,7 @@ void PacketStats::consumePacket(pcpp::Packet& packet)
 //Print stats to console
 void PacketStats::printToConsole()
 	{
-		std::cout
+		std::cout << std::endl << "Results:" << std::endl
 			<< "Ethernet packet count: " << ethPacketCount << std::endl
 			<< "IPv4 packet count:     " << ipv4PacketCount << std::endl
 			<< "IPv6 packet count:     " << ipv6PacketCount << std::endl
@@ -37,7 +39,7 @@ void PacketStats::printToConsole()
 			<< "HTTP packet count:     " << httpPacketCount << std::endl
 			<< "SSL packet count:      " << sslPacketCount << std::endl;
 	}
-
+	
 
 
 	

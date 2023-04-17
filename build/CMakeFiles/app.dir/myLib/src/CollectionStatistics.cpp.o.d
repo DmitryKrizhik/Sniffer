@@ -1,5 +1,7 @@
-CMakeFiles/app.dir/src/main.cpp.o: \
- /home/krizhik/Downloads/Sniffer/src/main.cpp /usr/include/stdc-predef.h \
+CMakeFiles/app.dir/myLib/src/CollectionStatistics.cpp.o: \
+ /home/krizhik/Downloads/Sniffer/myLib/src/CollectionStatistics.cpp \
+ /usr/include/stdc-predef.h \
+ /home/krizhik/Downloads/Sniffer/myLib/include/CollectionStatistics.h \
  /home/krizhik/Downloads/Sniffer/myLib/include/App.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -223,5 +225,4 @@ CMakeFiles/app.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/krizhik/Downloads/Sniffer/myLib/include/PacketStats.h \
- /home/krizhik/Downloads/Sniffer/myLib/include/CollectionStatistics.h
+ /home/krizhik/Downloads/Sniffer/myLib/include/PacketStats.h

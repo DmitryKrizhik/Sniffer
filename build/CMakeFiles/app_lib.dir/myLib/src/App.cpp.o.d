@@ -224,4 +224,5 @@ CMakeFiles/app_lib.dir/myLib/src/App.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/krizhik/Downloads/Sniffer/myLib/include/PacketStats.h
+ /home/krizhik/Downloads/Sniffer/myLib/include/PacketStats.h \
+ /home/krizhik/Downloads/Sniffer/myLib/include/CollectionStatistics.h

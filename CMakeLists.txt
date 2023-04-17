@@ -18,7 +18,7 @@ add_executable(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/src/main.cpp ${CPP_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE myLib/include)
 
 add_library(${PROJECT_NAME}_lib 
-	STATIC ${CMAKE_SOURCE_DIR}/myLib/src/App.cpp ${CMAKE_SOURCE_DIR}/myLib/src/PacketStats.cpp ) 
+	STATIC ${CMAKE_SOURCE_DIR}/myLib/src/App.cpp ${CMAKE_SOURCE_DIR}/myLib/src/PacketStats.cpp ${CMAKE_SOURCE_DIR}/myLib/src/CollectionStatistics.cpp) 
 
 target_include_directories(${PROJECT_NAME}_lib PUBLIC
 ${CMAKE_SOURCE_DIR}/../PcapPlusPlus/Packet++/header

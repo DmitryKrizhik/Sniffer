@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/app.dir/myLib/src/App.cpp.o"
   "CMakeFiles/app.dir/myLib/src/App.cpp.o.d"
+  "CMakeFiles/app.dir/myLib/src/CollectionStatistics.cpp.o"
+  "CMakeFiles/app.dir/myLib/src/CollectionStatistics.cpp.o.d"
   "CMakeFiles/app.dir/myLib/src/Func.cpp.o"
   "CMakeFiles/app.dir/myLib/src/Func.cpp.o.d"
   "CMakeFiles/app.dir/myLib/src/PacketStats.cpp.o"

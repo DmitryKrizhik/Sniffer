@@ -4,57 +4,102 @@
 #include <iostream>
 #include "App.h"
 	
-
-	/**
-	 * A callback function for the async capture which is called each time a packet is captured
-	 */
-	void App::onPacketArrives(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie)
+	bool App::IPv4Check(std::string interfaceIPAddr, pcpp::PcapLiveDevice* dev)
 	{
-		// extract the stats object form the cookie
-		PacketStats* stats = (PacketStats*)cookie;
-
-		// parsed the raw packet
-		pcpp::Packet parsedPacket(packet);
-
-		// collect stats from packet
-		stats->consumePacket(parsedPacket);
+	if (dev == NULL)
+		{
+			std::cerr << "Cannot find interface with IPv4 address of '" << interfaceIPAddr << "'" << std::endl;
+			return false;
+		}
+		return true;
 	}
+	
+
+
+	bool App::DevOpeningCheck(pcpp::PcapLiveDevice* dev)
+	{
+		if (!dev->open())
+		{
+			std::cerr << "Cannot open device" << std::endl;
+			return false;
+		}
+	}
+
+
+
+std::string App::getProtocolTypeAsString(pcpp::ProtocolType protocolType)
+	{
+	    switch (protocolType)
+	    {
+	    case pcpp::HTTPRequest:
+		return "OUT";
+	    case pcpp::HTTPResponse:
+		return "IN";
+	    }
+	}
+	
+
+void App::CollectStatistics(std::map<std::string, std::size_t> &countURL, pcpp::RawPacketVector packetVec, PacketStats &stats)
+	{
+		
+		for (pcpp::RawPacketVector::ConstVectorIterator iter = packetVec.begin(); iter != packetVec.end(); iter++)
+	{
+	    pcpp::Packet parsedPacket(*iter); // parse raw packet
+	    stats.consumePacket(parsedPacket); // feed packet to the stats object
+		
+		if (parsedPacket.isPacketOfType(pcpp::HTTPRequest)) 
+		{ 
+			pcpp::Layer *ptrLayer = parsedPacket.getLayerOfType(pcpp::HTTPRequest); 
+			pcpp::HttpRequestLayer* ptrHttpLayer = dynamic_cast<pcpp::HttpRequestLayer*>(ptrLayer); 
+		
+			if (ptrHttpLayer != NULL) 
+			{ 
+				
+				std::string str = ptrHttpLayer->getFieldByName(PCPP_HTTP_HOST_FIELD)->getFieldValue(); 
+				
+				std::map<std::string, std::size_t>::iterator it = countURL.find(str);
+				
+				if(it != countURL.end()) 
+				{
+				
+				countURL[str] += 2;}
+
+				else{ countURL[str] = 2;}
+			} 
+		}
+	}
+	}
+	// void App::CollectInOutStatistics(std::pair<int,int> &InOut, pcpp::RawPacketVector packetVec)
+	// {
+	// 	for (pcpp::RawPacketVector::ConstVectorIterator iter = packetVec.begin(); iter != packetVec.end(); iter++){
+	// 		pcpp::Packet parsedPacket(*iter);
+	// 		for (pcpp::Layer* curLayer = parsedPacket.getFirstLayer(); curLayer != NULL; curLayer = curLayer->getNextLayer())
+	// 			{
+	// 				if(App::getProtocolTypeAsString(curLayer->getProtocol()) == "OUT") {InOut.second++;}
+	// 				if(App::getProtocolTypeAsString(curLayer->getProtocol()) == "IN") {InOut.first++;}
+	// 			}
+	// }
+	// }
 
 
 	/**
 	 * a callback function for the blocking mode capture which is called each time a packet is captured
 	 */
-	bool App::onPacketArrivesBlockingMode(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie)
-	{
-		// extract the stats object form the cookie
-		PacketStats* stats = (PacketStats*)cookie;
+	// bool App::onPacketArrivesBlockingMode(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie)
+	// {
+	// 	// extract the stats object form the cookie
+	// 	PacketStats* stats = (PacketStats*)cookie;
 
-		// parsed the raw packet
-		pcpp::Packet parsedPacket(packet);
+	// 	// parsed the raw packet
+	// 	pcpp::Packet parsedPacket(packet);
 
-		// collect stats from packet
-		stats->consumePacket(parsedPacket);
+	// 	// collect stats from packet
+	// 	stats->consumePacket(parsedPacket);
 
-		// return false means we don't want to stop capturing after this callback
-		return false;
-	}
-	std::string App::getProtocolTypeAsString(pcpp::ProtocolType protocolType)
-	{
-	    switch (protocolType)
-	    {
-	    case pcpp::Ethernet:
-		return "Ethernet";
-	    case pcpp::IPv4:
-		return "IPv4";
-	    case pcpp::TCP:
-		return "TCP";
-	    case pcpp::HTTPRequest:
-	    case pcpp::HTTPResponse:
-		return "HTTP";
-	    default:
-		return "Unknown";
-	    }
-	}
+	// 	// return false means we don't want to stop capturing after this callback
+	// 	return false;
+	// }
+	
 	std::string App::printHttpMethod(pcpp::HttpRequestLayer::HttpMethod httpMethod)
 	{
 	    switch (httpMethod)
@@ -101,21 +146,42 @@
 
     return result;
 }
-	std::map<std::string, size_t> countURL = {}; 
-	std::string str = "";	
-	void App::PrintURLcount()
+	std::map<std::string, size_t> App::countURL = {}; 	
+	void App::PrintURLcount(std::map<std::string, std::size_t> countURL)
 	{
-		//std::map<std::string, size_t>::iterator it = App::countURL.begin();
-		// for (std::map<std::string, size_t>::iterator &el : App.countURL)
-		// {
-		// 	std::cout << std::endl << el->first << " : " << el->second << std::endl;
-		// }
-		for (auto &el : App::countURL)
+		for (auto &el : countURL)
 		{
-			std::cout << std::endl << el.first << " : " << el.second << std::endl;
+			std::cout << el.first << " : " << el.second << std::endl;
 		}
 	}	
-	//pcpp::HttpRequestLayer* App::httpRequestLayer = pcpp::parsedPacket.getLayerOfType<pcpp::HttpRequestLayer>();
+	void App::PrintAboutInterface(pcpp::PcapLiveDevice* dev)
+	{
+		std::cout
+		<< "Interface info:" << std::endl
+		<< "   Interface name:        " << dev->getName() << std::endl 
+		<< "   Interface description: " << dev->getDesc() << std::endl 
+		<< "   MAC address:           " << dev->getMacAddress() << std::endl 
+		<< "   Default gateway:       " << dev->getDefaultGateway() << std::endl 
+		<< "   Interface MTU:         " << dev->getMtu() << std::endl 
+		<< "   Interface IP:          " << dev->getIPv4Address() << std::endl; 
+		if (dev->getDnsServers().size() > 0){
+		std::cout << "   DNS server:            " << dev->getDnsServers().at(0) << std::endl;}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

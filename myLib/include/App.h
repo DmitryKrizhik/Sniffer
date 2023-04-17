@@ -13,26 +13,31 @@
 #include "HttpLayer.h" 
 #include "PcapFileDevice.h"
 #include "PacketStats.h"
+#include "CollectionStatistics.h"
 #include <map>
 #include <algorithm>
+
 //#include "version.h"
 //#include "path.h"
 
-
+class PacketStats;
+class CollectionStatistics;
 class App
 {
 	public:
-	//pcpp::HttpRequestLayer* httpRequestLayer;
-	
-	std::string str;
-	std::map<std::string, size_t> countURL; 
-	static void onPacketArrives(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie);
-	static bool onPacketArrivesBlockingMode(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie);
-	std::string getProtocolTypeAsString(pcpp::ProtocolType protocolType);
+	bool IPv4Check(std::string interfaceIPAddr, pcpp::PcapLiveDevice* dev);
+	void PrintAboutInterface(pcpp::PcapLiveDevice* dev);
+	bool DevOpeningCheck(pcpp::PcapLiveDevice* dev);
+	static std::map<std::string, std::size_t> countURL; 
+	void CollectStatistics(std::map<std::string, std::size_t> &countURL, pcpp::RawPacketVector packetVec, PacketStats &stats);
+	//static void onPacketArrives(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie);
+	//static bool onPacketArrivesBlockingMode(pcpp::RawPacket* packet, pcpp::PcapLiveDevice* dev, void* cookie);
+	static std::string getProtocolTypeAsString(pcpp::ProtocolType protocolType);
 	std::string printHttpMethod(pcpp::HttpRequestLayer::HttpMethod httpMethod);
 	std::string printTcpOptionType(pcpp::TcpOptionType optionType);
 	std::string printTcpFlags(pcpp::TcpLayer* tcpLayer);
-	void PrintURLcount();
+	static void PrintURLcount(std::map<std::string, std::size_t> countURL);
+	
 	//static void printVersion();
 	//static void printPath();
 };

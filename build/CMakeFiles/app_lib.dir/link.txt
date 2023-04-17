@@ -1,2 +1,2 @@
-/usr/bin/ar qc libapp_lib.a CMakeFiles/app_lib.dir/myLib/src/App.cpp.o CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.o
+/usr/bin/ar qc libapp_lib.a CMakeFiles/app_lib.dir/myLib/src/App.cpp.o CMakeFiles/app_lib.dir/myLib/src/PacketStats.cpp.o CMakeFiles/app_lib.dir/myLib/src/CollectionStatistics.cpp.o
 /usr/bin/ranlib libapp_lib.a

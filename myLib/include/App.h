@@ -21,21 +21,27 @@
 class PacketStats;
 class App
 {
-	public:	
-	static std::string interfaceIPAddr;
-	// std::shared_ptr<spdlog::logger> logger;
+
+public:
+	static std::string IP;
+	static std::string URL;
 	bool IPv4Check(std::string interfaceIPAddr, pcpp::PcapLiveDevice* dev);
 	void PrintAboutInterface(pcpp::PcapLiveDevice* dev);
 	bool DevOpeningCheck(pcpp::PcapLiveDevice* dev);
 	static std::map<std::string, std::size_t> countURL; 
-	void CollectStatistics(std::map<std::string, std::size_t> &countURL, pcpp::RawPacketVector packetVec, PacketStats &stats,
-	std::pair<int,int> &InOut);
-	static std::string getProtocolTypeAsString(pcpp::ProtocolType protocolType);
-	std::string printHttpMethod(pcpp::HttpRequestLayer::HttpMethod httpMethod);
-	std::string printTcpOptionType(pcpp::TcpOptionType optionType);
-	std::string printTcpFlags(pcpp::TcpLayer* tcpLayer);
+	void CollectStatistics(std::map<std::string, std::size_t> &countURL, pcpp::RawPacketVector packetVec, PacketStats stats, std::pair<int,int> &InOut,
+	std::string URL);
 	static void PrintURLcount(std::map<std::string, std::size_t> countURL, std::pair<int,int> InOut);
 	static std::pair<int,int> InOut;
+	static std::string interfaceIPAddr;
+
+private:
+	
+	void PrintDetailedStatistics(pcpp::Packet parsedPacket, std::string URL, std::pair<int,int> &InOut);
+	void URL_StatisticCount(PacketStats stats, pcpp::RawPacketVector::ConstVectorIterator iter, std::string URL, std::map<std::string, size_t> countURL,
+	pcpp::Packet parsedPacket);
+	static std::string getProtocolTypeAsString(pcpp::ProtocolType protocolType);
+	
 };
 
 

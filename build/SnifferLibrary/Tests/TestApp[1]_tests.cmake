@@ -1,1 +1,0 @@
-set( TestApp_TESTS)

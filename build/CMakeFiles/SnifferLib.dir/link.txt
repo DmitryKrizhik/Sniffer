@@ -1,2 +1,0 @@
-/usr/bin/ar qc libSnifferLib.a CMakeFiles/SnifferLib.dir/SnifferLibrary/src/App.cpp.o CMakeFiles/SnifferLib.dir/SnifferLibrary/src/PacketStats.cpp.o
-/usr/bin/ranlib libSnifferLib.a

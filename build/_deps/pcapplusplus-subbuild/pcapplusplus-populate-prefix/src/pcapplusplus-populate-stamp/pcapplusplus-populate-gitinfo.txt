@@ -1,3 +1,0 @@
-repository='https://github.com/seladb/PcapPlusPlus.git'
-module=''
-tag='origin'

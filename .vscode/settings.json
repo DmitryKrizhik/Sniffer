@@ -54,6 +54,12 @@
         "typeinfo": "cpp",
         "condition_variable": "cpp",
         "cstring": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "any": "cpp",
+        "set": "cpp",
+        "iomanip": "cpp",
+        "optional": "cpp",
+        "sstream": "cpp",
+        "variant": "cpp"
     }
 }

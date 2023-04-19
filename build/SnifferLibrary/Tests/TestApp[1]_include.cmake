@@ -1,0 +1,5 @@
+if(EXISTS "/home/krizhik/Downloads/Sniffer/build/SnifferLibrary/Tests/TestApp[1]_tests.cmake")
+  include("/home/krizhik/Downloads/Sniffer/build/SnifferLibrary/Tests/TestApp[1]_tests.cmake")
+else()
+  add_test(TestApp_NOT_BUILT TestApp_NOT_BUILT)
+endif()

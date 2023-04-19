@@ -13,8 +13,9 @@
 	}
 	
 	void App::CollectStatistics(std::map<std::string, std::size_t> &countURL, pcpp::RawPacketVector packetVec, PacketStats &stats, std::pair<int,int> &InOut,
-	std::string URL)
+	std::string &URL)
 		{
+			std::cout << std::endl;
 			LOG_INFO("CollectStatistics<Method started>");
 			for (pcpp::RawPacketVector::ConstVectorIterator iter = packetVec.begin(); iter != packetVec.end(); iter++)
 		{
@@ -23,9 +24,10 @@
 			URL_StatisticCount(stats, iter, URL, countURL, parsedPacket);
 			PrintDetailedStatistics(parsedPacket, URL, InOut);
 		}	
+	std::cout << std::endl;
 	}
 
-	void App::URL_StatisticCount(PacketStats stats, pcpp::RawPacketVector::ConstVectorIterator iter, std::string URL, std::map<std::string, size_t> countURL,
+	void App::URL_StatisticCount(PacketStats stats, pcpp::RawPacketVector::ConstVectorIterator iter, std::string &URL, std::map<std::string, size_t> &countURL,
 	pcpp::Packet parsedPacket){
 			if (parsedPacket.isPacketOfType(pcpp::HTTPRequest)) 
 			{ 
@@ -45,6 +47,7 @@
 
 	void App::PrintDetailedStatistics(pcpp::Packet parsedPacket, std::string URL, std::pair<int,int> &InOut)
 	{
+		
 			for (pcpp::Layer* curLayer = parsedPacket.getFirstLayer(); curLayer != NULL; curLayer = curLayer->getNextLayer())
 		{
 			if (App::getProtocolTypeAsString(curLayer->getProtocol()) == "HTTPRequest"){
@@ -71,7 +74,7 @@
 		}
 	}
 
-	void App::PrintURLcount(std::map<std::string, std::size_t> countURL, std::pair<int,int> InOut)
+	void App::PrintURLcount(std::map<std::string, std::size_t> &countURL, std::pair<int,int> InOut)
 	{
 		LOG_INFO("PrintURLcount<Method started>");
 		std::cout << std::endl;
@@ -79,23 +82,21 @@
 		{
 			std::cout << el.first << " : " << el.second << std::endl;
 		}
-		std::cout << std::endl << "HTTPRequests: " << InOut.first << "\t" << "HTTPResponse: " << InOut.second << std::endl << std::endl;
+		std::cout << "HTTPRequests: " << InOut.first << "\t" << "HTTPResponse: " << InOut.second << std::endl << std::endl;
 	}	
 
 	void App::PrintAboutInterface(pcpp::PcapLiveDevice* dev)
 	{
 		LOG_INFO("PrintAboutInterface<Method started>");
-		std::cout
-		<< "Interface info:" << std::endl
+		std::cout << std::endl 
+		<< "Interface info:" << std::endl 
 		<< "   Interface name:        " << dev->getName() << std::endl 
-		<< "   Interface description: " << dev->getDesc() << std::endl 
 		<< "   MAC address:           " << dev->getMacAddress() << std::endl 
 		<< "   Default gateway:       " << dev->getDefaultGateway() << std::endl 
 		<< "   Interface MTU:         " << dev->getMtu() << std::endl 
 		<< "   Interface IP:          " << dev->getIPv4Address() << std::endl; 
 		if (dev->getDnsServers().size() > 0){
-		std::cout << "   DNS server:            " << dev->getDnsServers().at(0) << std::endl;}
-
+		std::cout << "   DNS server:            " << dev->getDnsServers().at(0) << std::endl << std::endl;}
 	}
 
 	bool App::IPv4Check(std::string interfaceIPAddr, pcpp::PcapLiveDevice* dev)
@@ -124,17 +125,18 @@
 			return false;
 		}
 		else 
-			throw "Dev open without error";
 			{LOG_INFO("DevOpeningCheck<Device opened successful>");	
 			return true;}
 	}
-	void App::IP_Check(std::string interfaceIPAddr)
+	
+	void App::IPAddressValidationCheck(std::string interfaceIPAddr)
 	{
 		if(interfaceIPAddr == "10.0.0.0" || interfaceIPAddr == "100.64.0.0" || interfaceIPAddr == "172.16.0.0" || interfaceIPAddr == "192.168.0.0")
 		{
 			throw std::logic_error("ERROR: Sermentation fault");
 		}
 	}
+
 	std::size_t App::timer = 0;
 	std::string App::interfaceIPAddr = "";
 	std::string App::URL = "";
@@ -146,10 +148,7 @@
 		this->timer = timer;
 		this->interfaceIPAddr = interfaceIPAddr;
 	}
-
-	App::App(){};
 	
-
 	void App::SetTimer(std::size_t timer)
 	{
 		App::timer = timer;

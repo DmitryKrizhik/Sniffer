@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/CMakeFiles/pcapplusplus-populate"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/CMakeFiles/pcapplusplus-populate.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/CMakeFiles/pcapplusplus-populate-complete.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-build.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-configure.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-download.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-install.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-patch.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-test.rule"
+		},
+		{
+			"file" : "/home/krizhik/Downloads/Sniffer/build/_deps/pcapplusplus-subbuild/pcapplusplus-populate-prefix/src/pcapplusplus-populate-stamp/pcapplusplus-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"pcapplusplus-populate"
+		],
+		"name" : "pcapplusplus-populate"
+	}
+}

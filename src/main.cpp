@@ -7,15 +7,16 @@
 int main(int argc, char* argv[])
 {
 	
-	App App(20, "10.0.2.15"); //Creating an object of class APP
+	App App(30, "10.0.2.15"); //Creating an object of class APP
 	 //Default running time
 
 	//Choice of working time
-	if( argc >= 2 && *argv[1] == '1' ) { App::SetTimer(10); std::cout << std::endl; LOG_INFO("Sniffer<Short mode>"); std::cout << std::endl;}
-	if( argc >= 2 && *argv[1] == '2' ) { App::SetTimer(20); std::cout << std::endl; LOG_INFO("Sniffer<Standard mode>"); std::cout << std::endl;}
-	if( argc >= 2 && *argv[1] == '3' ) { App::SetTimer(30); std::cout << std::endl; LOG_INFO("Sniffer<Long mode>"); std::cout << std::endl;}
+	if( argc >= 2 && *argv[1] == '1' ) { App::SetTimer(15); std::cout << std::endl; LOG_INFO("Sniffer<Short mode>"); std::cout << std::endl;}
+	if( argc >= 2 && *argv[1] == '2' ) { App::SetTimer(30); std::cout << std::endl; LOG_INFO("Sniffer<Standard mode>"); std::cout << std::endl;}
+	if( argc >= 2 && *argv[1] == '3' ) { App::SetTimer(60); std::cout << std::endl; LOG_INFO("Sniffer<Long mode>"); std::cout << std::endl;}
 	if( argc >= 3) {App::interfaceIPAddr = argv[2]; LOG_INFO("Sniffer<interfaceIPAddr = " + App::interfaceIPAddr + ">");}
 
+	App::IPAddressValidationCheck(App::interfaceIPAddr);
 	pcpp::PcapLiveDevice* dev = pcpp::PcapLiveDeviceList::getInstance().getPcapLiveDeviceByIp(App::interfaceIPAddr);
 	App.IPv4Check(App::interfaceIPAddr, dev);
 	App.PrintAboutInterface(dev);
